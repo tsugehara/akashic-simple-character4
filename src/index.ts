@@ -1,6 +1,7 @@
 export type Character4Direction = "left" | "right" | "top" | "down";
 
-export interface Character4ParameterObject extends g.FrameSpriteParameterObject {
+export interface Character4ParameterObject
+	extends g.FrameSpriteParameterObject {
 	animationFrameCount: number;
 	initialAngle?: Character4Direction;
 }
@@ -34,11 +35,12 @@ export class Character4 extends g.FrameSprite {
 		}
 		this._changeFramesByDirection();
 		this.onUpdate.add(this._handleCharacterUpdate, this);
-		this.moveSpeed = 0.003 * 1000 / g.game.fps;
+		this.moveSpeed = (0.003 * 1000) / g.game.fps;
 	}
 
 	_changeFramesByDirection() {
-		const offset = this.animationFrameCount * angleFrameIndex[this.currentDirection];
+		const offset =
+			this.animationFrameCount * angleFrameIndex[this.currentDirection];
 		this.frames = this.frames.map((_, index) => offset + index);
 		this.modified();
 	}
@@ -67,8 +69,12 @@ export class Character4 extends g.FrameSprite {
 			if (diff > this.destinationPos.time) {
 				diff = this.destinationPos.time;
 			}
-			const x = (this.destinationPos.x - this.x) * (diff / this.destinationPos.time);
-			const y = (this.destinationPos.y - this.y) * (diff / this.destinationPos.time);
+			const x =
+				(this.destinationPos.x - this.x) *
+				(diff / this.destinationPos.time);
+			const y =
+				(this.destinationPos.y - this.y) *
+				(diff / this.destinationPos.time);
 			this.destinationPos.time -= diff;
 			if (this.destinationPos.time === 0) {
 				this.moveTo(this.destinationPos.x, this.destinationPos.y);
@@ -88,30 +94,36 @@ export class Character4 extends g.FrameSprite {
 
 	move(angle: Character4Direction, distance: number) {
 		switch (angle) {
-		case "left":
-			this.changeDirection(angle);
-			this.x -= distance;
-			break;
-		case "right":
-			this.changeDirection(angle);
-			this.x += distance;
-			break;
-		case "top":
-			this.changeDirection(angle);
-			this.y -= distance;
-			break;
-		case "down":
-			this.changeDirection(angle);
-			this.y += distance;
-			break;
-		default:
-			throw new Error(`Invalid angle: ${angle}`);
+			case "left":
+				this.changeDirection(angle);
+				this.x -= distance;
+				break;
+			case "right":
+				this.changeDirection(angle);
+				this.x += distance;
+				break;
+			case "top":
+				this.changeDirection(angle);
+				this.y -= distance;
+				break;
+			case "down":
+				this.changeDirection(angle);
+				this.y += distance;
+				break;
+			default:
+				throw new Error(`Invalid angle: ${angle}`);
 		}
 	}
 
 	animationMoveTo(x: number, y: number, time?: number) {
-		this.destinationPos = {x, y,
-			time: time == null ? Math.max(Math.abs(x - this.x), Math.abs(y - this.y)) / this.moveSpeed : time,
+		this.destinationPos = {
+			x,
+			y,
+			time:
+				time == null
+					? Math.max(Math.abs(x - this.x), Math.abs(y - this.y)) /
+					  this.moveSpeed
+					: time,
 		};
 		this._changeAngleByDestination();
 	}
