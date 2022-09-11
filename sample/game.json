@@ -1,0 +1,40 @@
+{
+	"width": 480,
+	"height": 480,
+	"fps": 30,
+	"main": "./script/main.js",
+	"assets": {
+		"main": {
+			"type": "script",
+			"path": "script/main.js",
+			"global": true
+		},
+		"player1": {
+			"type": "image",
+			"path": "image/player1.png",
+			"width": 96,
+			"height": 128
+		},
+		"player2": {
+			"type": "image",
+			"path": "image/player2.png",
+			"width": 96,
+			"height": 128
+		},
+		"player3": {
+			"type": "image",
+			"path": "image/player3.png",
+			"width": 96,
+			"height": 128
+		}
+	},
+	"moduleMainScripts": {
+		"akashic-simple-character4": "node_modules/akashic-simple-character4/build/index.js"
+	},
+	"environment": {
+		"sandbox-runtime": "3"
+	},
+	"globalScripts": [
+		"node_modules/akashic-simple-character4/build/index.js"
+	]
+}

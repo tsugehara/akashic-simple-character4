@@ -33,6 +33,10 @@ export class Character4 extends g.FrameSprite {
 		for (let i = 0; i < this.animationFrameCount; i++) {
 			this.frames.push(0);
 		}
+		if (this.animationFrameCount === 3) {
+			// 3の時は中間フレームを最後に足す
+			this.frames.push(0);
+		}
 		this._changeFramesByDirection();
 		this.onUpdate.add(this._handleCharacterUpdate, this);
 		this.moveSpeed = (0.003 * 1000) / g.game.fps;
@@ -41,7 +45,11 @@ export class Character4 extends g.FrameSprite {
 	_changeFramesByDirection() {
 		const offset =
 			this.animationFrameCount * angleFrameIndex[this.currentDirection];
-		this.frames = this.frames.map((_, index) => offset + index);
+		if (this.animationFrameCount === 3) {
+			this.frames = [offset, offset + 1, offset + 2, offset + 1];
+		} else {
+			this.frames = this.frames.map((_, index) => offset + index);
+		}
 		this.modified();
 	}
 

@@ -42,6 +42,8 @@ this.onPointDownCapture.add((e) => {
 });
 ```
 
+JavaScriptの簡単なサンプルは、[sample](./sample)フォルダにもご用意してあります。
+
 ## LICENSE
 
 [MIT License](./LICENSE)

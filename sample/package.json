@@ -1,0 +1,22 @@
+{
+	"name": "akashic-simple-character4d-sample",
+	"private": true,
+	"version": "0.1.0",
+	"description": "",
+	"scripts": {
+		"start": "akashic-sandbox .",
+		"update": "akashic-cli-scan asset",
+		"export": "rimraf game.zip && akashic-cli-export-html -o ./game.zip"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "",
+	"devDependencies": {
+		"@akashic/akashic-cli": "^2.15.74",
+		"@akashic/akashic-sandbox": "~0.17.35",
+		"rimraf": "^3.0.2"
+	},
+	"dependencies": {
+		"akashic-simple-character4": "^0.2.0"
+	}
+}
