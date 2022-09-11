@@ -11,7 +11,7 @@ function main(param) {
 	});
 	scene.onLoad.add(() => {
 		// 1～3に変えると、キャラクターが変わります
-		const playerId = 3;
+		const playerId = 1;
 		const chara4 = new lib.Character4({
 			scene: scene,
 			src: scene.asset.getImage(`/image/player${playerId}.png`),

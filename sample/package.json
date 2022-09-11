@@ -17,6 +17,6 @@
 		"rimraf": "^3.0.2"
 	},
 	"dependencies": {
-		"akashic-simple-character4": "^0.1.0"
+		"akashic-simple-character4": "^0.2.0"
 	}
 }
