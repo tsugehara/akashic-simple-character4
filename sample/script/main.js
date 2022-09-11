@@ -3,12 +3,18 @@ const lib = require("akashic-simple-character4");
 function main(param) {
 	const scene = new g.Scene({
 		game: g.game,
-		assetPaths: ["/image/player.png"],
+		assetPaths: [
+			"/image/player1.png",
+			"/image/player2.png",
+			"/image/player3.png",
+		],
 	});
 	scene.onLoad.add(() => {
+		// 1～3に変えると、キャラクターが変わります
+		const playerId = 3;
 		const chara4 = new lib.Character4({
 			scene: scene,
-			src: scene.asset.getImage("/image/player.png"),
+			src: scene.asset.getImage(`/image/player${playerId}.png`),
 			animationFrameCount: 3,
 			interval: 200,
 			width: 32,

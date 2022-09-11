@@ -5,6 +5,7 @@
 	"description": "",
 	"scripts": {
 		"start": "akashic-sandbox .",
+		"update": "akashic-cli-scan asset",
 		"export": "rimraf game.zip && akashic-cli-export-html -o ./game.zip"
 	},
 	"keywords": [],
